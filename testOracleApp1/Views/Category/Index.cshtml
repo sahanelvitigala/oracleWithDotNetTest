@@ -1,0 +1,98 @@
+﻿@model List<testOracleApp1.Models.Category>
+@{
+      ViewData["Title"] = "Categories";   
+}
+
+   <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-12 mb-3 text-left">
+                <a  class="btn btn-primary"
+                    asp-area=""
+                    asp-controller="Category"
+                    asp-action="Create" 
+                    >
+                    Create
+                </a> 
+                 </div>
+            </div>
+           
+            <div class="row">
+                <div class="col-12">
+              
+
+                    <div class="card">
+                        
+  
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            @if(Model != null && Model.Any())
+                            {
+                                <div class="custom-filters mt-2 mb-2"></div>
+                                <table id="listTableView" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                             <th>ID</th>
+                                             <th>Name</th>
+                                             <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                         @foreach (var category in Model)
+                                        {
+                                            <tr>
+                                                <td>@category.Id</td>
+                                                <td>@category.Name</td>
+                                                <td>
+                                                        <a  class="btn btn-success"
+                                                        asp-area=""
+                                                        asp-controller="Category"
+                                                        asp-action="Details" 
+                                                        asp-route-id="@category.Id">
+                                                        View
+                                                    </a> 
+                                                    <a  class="btn btn-warning"
+                                                        asp-area=""
+                                                        asp-controller="Category"
+                                                        asp-action="Edit" 
+                                                        asp-route-id="@category.Id">
+                                                        Edit
+                                                    </a> 
+                                                        <a  class="btn btn-danger"
+                                                        asp-area=""
+                                                        asp-controller="Category"
+                                                        asp-action="Delete" 
+                                                        asp-route-id="@category.Id">
+                                                        Delete
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                             <th>ID</th>
+                                             <th>Name</th>
+                                             <th>Actions</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            }
+                            else
+                            {
+                                <p> no categories found !</p>    
+                            }
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->

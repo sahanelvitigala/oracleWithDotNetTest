@@ -1,0 +1,56 @@
+﻿@model testOracleApp1.Models.ViewModels.CategoryEditRequest
+	
+<!-- Main content -->
+	<section class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<!-- left column -->
+				<div class="col-md-12">
+					<!-- general form elements -->
+					<div class="card card-primary">
+						<div class="card-header">
+							<h3 class="card-title">Delete Category</h3>
+						</div>
+						<!-- /.card-header -->
+
+						@if (Model != null)
+						{
+							<!-- form start -->
+							<form method="post">
+								<div class="card-body">
+									<div class="form-group">
+										<label for="id"> ID</label>
+										 <input type="text" class="form-control" id="id" name="id" asp-for="Id" readonly  />
+									</div>
+									<div class="form-group">
+										<label for="name">Name</label>
+										 <input type="text" class="form-control" id="name" name="name" asp-for="Name" readonly  />
+									</div>
+								</div>
+								<!-- /.card-body -->
+
+								<div class="card-footer">
+									<button type="submit" class="btn btn-dark"
+										asp-area=""
+										asp-controller="Category"
+										asp-action="Delete"
+									>
+										Delete
+									</button>
+								</div>
+							</form>
+						}
+						else
+						{
+							<p> Category not found </p>
+						}
+					</div>
+					<!-- /.card -->
+				</div>
+				<!--/.col (left) -->
+						
+			</div>
+			<!-- /.row -->
+		</div><!-- /.container-fluid -->
+	</section>
+	<!-- /.content -->
